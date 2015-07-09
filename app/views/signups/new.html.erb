@@ -1,0 +1,44 @@
+<div class="header">
+      <div class="container">
+        <!-- <h1>Barbers Oakland</h1>
+        <p>Connect your ideas globally</p> -->
+        <!-- <a class="btn" href="#">Learn More</a> -->
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="container">
+        <img src="https://dl.dropboxusercontent.com/u/69054817/barber-chair-psd-457851.png" height="128" width="196">
+        <h2>Barbers Oakland ~ Men’s Fine Grooming</h2>
+        <p>We are passionate barbers with a vision. Excellence is our hallmark. Oakland is our home.</p>
+        <p>Our Men’s Fine Grooming claim means, for our clients, top tier professional skills, attention to detail, and consistent, dependable excellence in an unhurried clubhouse setting.</p>
+        <p>Come to the next level in men’s grooming. We’ll see you in July.</p>
+      </div>
+    </div>
+
+    <div class="jumbotron">
+      <div class="container">
+        <h2>Stay Connected</h2>
+        <p>Receive weekly insights from industry insiders.</p>
+        
+        
+        <%= form_for(@signup) do |f| %>  
+          <div class="field"> 
+            <%= f.text_field :name, :placeholder => "Name" %>
+            <%= f.email_field :email, :placeholder => "Email" %>
+            <%= f.telephone_field :number, :placeholder => "Phone Number" %>
+          </div> 
+          <div class="actions"> 
+            <%= f.submit "Sign Up", :class => "btn" %> 
+          </div> 
+        <% end %>
+        
+        
+
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <p>&copy; Barbers <span>Oakland</span> 2015</p>
+      </div>
