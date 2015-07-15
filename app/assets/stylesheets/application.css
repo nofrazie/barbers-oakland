@@ -31,16 +31,21 @@ body {
   text-align: center; 
 }
 
-.thanks {
+.thanks, .login {
   background: url(https://dl.dropboxusercontent.com/u/69054817/thank_image.png) no-repeat center center; 
   background-size: cover;
-  height: 800px;
+  height: 695px;
   text-align: center;
 }
 
 .header .container, .thanks .container {
   position: relative;
   top: 200px;
+}
+
+.login .container {
+  position: relative;
+  top: 100px;
 }
 
 .header h1, .thanks h1 {
@@ -50,6 +55,15 @@ body {
   margin-top: 0;
   margin-bottom: 80px;
   text-transform: uppercase; 
+}
+
+.login h1 {
+  color: #fff;
+  font-size:40px;
+  line-height: 35px;
+  margin-top: 0;
+  margin-bottom: 35px;
+  text-transform: uppercase;
 }
 
 @media (max-width: 850px) {
@@ -82,13 +96,25 @@ body {
   width: 100%;
 }
 
+.nav h3 {
+  color:white;
+  float:left;
+  line-height: 80px;
+  padding:0px;
+  margin:0px;
+}
+
+.nav h3:hover {
+  color: sandybrown;
+}
+
 .nav ul {
   height: 80px;
   list-style: none;
   margin: 0 auto; 
   padding: 0;
   text-align: center; 
-  width: 720px;
+  float: right;
 }
 
 .nav ul li {
@@ -96,13 +122,30 @@ body {
   display: inline-block; 
   height: 80px;
   line-height: 80px; 
-  list-style: none;
-  width: 140px;  
+  list-style: none;  
   transition: background .5s; 
+  padding: 0 5px;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color:white;
+}
+
+.nav ul li a:visited {
+  color:white;
+}
+
+.nav .container ul li span a {
+  color:sandybrown;
+}
+
+.current_user {
+  border-bottom:sandybrown 1px solid;
 }
 
 .btn:hover, .nav ul li:hover {
-  background: #117bff;
+  background: #111;
   cursor: pointer; 
   transition: background .5s;  
 }
@@ -152,8 +195,22 @@ body {
   font-weight: 400;
 }
 
-.jumbotron .btn:hover {
-  background-color: tomato;
+.login .btn {
+  background-color: #fff;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  height: 80px;
+  line-height: 80px;
+  margin: 10px 0 0;
+  padding: 0;
+  transition: background 0.5s, color 0.5s;
+  width: calc(50% - 120px); 
+  font-weight: 400;
+}
+
+.jumbotron .btn:hover, .login .btn:hover {
+  background-color: sandybrown;
   color:white;
 }
 
@@ -169,10 +226,32 @@ body {
   line-height: 80px;
   margin: 0;
   font-weight: 400;
+  float:left;
 }
 
-.footer .container span {
-  color:tomato;
+.footer ul li {
+  display: inline-block;
+}
+
+.footer ul {
+  float: right;
+  margin:0px;
+  line-height: 80px;
+  padding: 0px;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #ccc;
+  padding: 0 5px;
+}
+
+.footer a:visited {
+  color:#ccc;
+}
+
+.footer .container span, .footer .container ul li span a {
+  color:sandybrown;
 }
 
 .jumbotron form {
@@ -180,7 +259,7 @@ body {
   width: 100%;
 }
 
-.jumbotron input[type=submit] {
+.jumbotron input[type=submit], .login input[type=submit] {
   border: none;
   margin: 0 auto;
 }
@@ -197,17 +276,88 @@ body {
   color:white;
 }
 
-.jumbotron input[type=text]:focus, .jumbotron input[type=email]:focus, .jumbotron input[type=tel]:focus {
+.login input[type=text], .login input[type=email], .login input[type=tel], .login input[type=password] {
+  background-color: rgba(255,255,255,0.5);
+  display: block;
+  border: none;
+  border-bottom: 4px solid #ccc;
+  font-size: 16px;
+  margin: 10px auto;
+  padding:30px;
+  transition: border-bottom 0.5s;
+  width: calc(50% - 120px);
+  color:white;
+}
+
+.jumbotron input[type=text]:focus, .jumbotron input[type=email]:focus, .jumbotron input[type=tel]:focus,
+.login input[type=text]:focus, .login input[type=email]:focus, .login input[type=tel]:focus, .login input[type=password]:focus {
   border:none;
-  border-bottom: 4px solid tomato;
+  border-bottom: 4px solid sandybrown;
   box-shadow: 0 0;
   transition: border-bottom 0.5s;
   outline: none;
 }
 
+::-webkit-input-placeholder {
+   color: #ccc;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #ccc;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #ccc;  
+}
+
+:-ms-input-placeholder {  
+   color: #ccc;  
+}
+
 div.field {
   margin-bottom: 10px;
 }
+
+/* Signup Form */
+
+.login .form {
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Signup Index Page */
+
+.signup_number, .signup_info {
+  height:140px;
+  margin: 10px 0;
+}
+
+.signup_number {
+  text-align: center;
+}
+
+.signup_number span {
+  position: relative;
+  top:45px;
+  font-size: 36px;
+  font-weight: bold;
+  color:sandybrown;
+}
+
+.index_title {
+  text-align: center;
+  font-family: Helvetica;
+}
+
+.index_title h1 {
+  color:#666;
+  font-size: 36px;
+}
+
+.index_title h4 {
+  color:sandybrown;
+}
+
 
 /* Grid */
 

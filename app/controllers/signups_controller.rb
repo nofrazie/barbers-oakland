@@ -1,4 +1,10 @@
 class SignupsController < ApplicationController
+	before_action :require_user, only: [:index]
+
+	def index
+		@signups = Signup.all
+	end
+
 	def new
 		@signup = Signup.new
 	end
@@ -14,6 +20,6 @@ class SignupsController < ApplicationController
 
 	private
 	def signup_params
-		params.require(:signup).permit(:email)
+		params.require(:signup).permit(:name, :email, :number)
 	end
 end

@@ -1,0 +1,25 @@
+<div class="index_title">
+	<div class="container">
+		<h1>Barbers Oakland</h1>
+		<h4>Signups</h4>
+		<hr>
+	</div>
+</div>
+
+<div>
+	<div class="container">
+		<div>
+			<% @signups.each do |signup| %>
+			<div class="col-md-3 signup_number">
+				<span><%= signup.id %></span>
+			</div>
+			<div class="col-md-9 signup_info">
+				<h3><span>Name: </span><%= signup.name %></h3>
+				<p><span>Email: </span><%= mail_to signup.email %></p>
+				<p><span>Phone Number: </span><%= number_to_phone(signup.number, area_code: true) %></p>
+			</div>
+			<hr>
+			<% end %>
+		</div>
+	</div>
+</div>

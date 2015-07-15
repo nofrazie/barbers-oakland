@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BarbersOakland</title>
+  <title>Barbers Oakland</title>
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -9,7 +9,48 @@
 </head>
 <body>
 
-<%= yield %>
+	<% if current_user %>
+		<div class="nav">
+			<div class="container">
+				<a href="/"><h3>Barbers Oakland</h3></a>
 
+				<% if current_user %>
+					<ul>
+						<li class="current_user"><%= current_user.email %></li>
+						<li><%= link_to "Signups", '/signups' %></li>
+						<li><span><%= link_to "Log out", logout_path, method: "delete" %></span></li>
+					</ul>
+				<% else %>
+					<ul>
+						<li><%= link_to "Login", 'login' %></li>
+						<li><span><%= link_to "Create Account", 'signup' %></span></li>
+					</ul>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+	
+	<%= yield %>
+
+	<div class="footer">
+    <div class="container">
+      <p>&copy; Barbers <span>Oakland</span> 2015</p>
+
+      <% if current_user %>
+				<ul>
+					<li><%= link_to "Signups", '/signups' %></li>
+					<li><span><%= link_to "Log out", logout_path, method: "delete" %></span></li>
+				</ul>
+			<% else %>
+				<ul>
+					<li><%= link_to "Login", 'login' %></li>
+					<li><span><%= link_to "Create Account", 'signup' %></span></li>
+				</ul>
+			<% end %>
+
+    </div>
+  </div>
+
+	
 </body>
 </html>
