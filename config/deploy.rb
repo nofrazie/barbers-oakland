@@ -1,4 +1,4 @@
-require 'bundler/capistrano'
+require "bundler/capistrano"
 
 set :user, 'barbersoakland'  # Your dreamhost account's username
 set :domain, 'ps447939.dreamhost.com'  # Dreamhost servername where your account is located 
@@ -12,6 +12,9 @@ set :git_enable_submodules, 1 # if you have vendored rails
 set :branch, 'master'
 set :git_shallow_clone, 1
 set :scm_verbose, true
+set :rails_env, "production"
+set :keep_releases, 5
+server "nolanfrazier@ps447939.dreamhost.com", :app, :web, :db, :primary => true
 
 # version control config
 set :scm_username, 'nolanfrazier'
@@ -23,8 +26,8 @@ role :app, domain
 role :db,  domain, :primary => true
 
 # deploy config
-set :deploy_to, applicationdir
-set :deploy_via, :export
+set :deploy_to, "http://barbersoakland.com"
+set :deploy_via, :copy
 
 # additional settings
 default_run_options[:pty] = true  # Forgo errors when deploying from windows
